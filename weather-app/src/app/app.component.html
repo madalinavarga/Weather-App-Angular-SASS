@@ -1,0 +1,22 @@
+<div class="layout">
+  <div class="card">
+    <form [formGroup]="weatherForm" class="form">
+      <input
+        class="input"
+        formControlName="locationInput"
+        (keydown)="onEnterKey($event)"
+        placeholder="City, Country"
+      />
+    </form>
+    <div class="weather-info">
+      <img [src]="'../assets/' + weatherData.weather[0].icon + '.png'" alt="weather-image"/>
+      <div> {{floor(weatherData.main.temp - 273)}} °C </div>
+      <span>{{weatherData.name}}</span>
+      <div class="other-details">
+        <span><b>Feel like:</b> {{floor(weatherData.main.feels_like - 273)}} °C </span>
+        <span><b>Humidity:</b> {{floor(weatherData.main.humidity)}} % </span>
+        <span><b>Wind speed:</b> {{weatherData.wind.speed}} km/h </span>
+      </div>
+    </div>
+  </div>
+</div>
